@@ -19,6 +19,7 @@ from user import urls as user_urls
 
 from .sitemaps import sitemaps as sitemaps_dict
 from .views import RootApiView, test_celery
+from testapp import urls as testapp_urls
 
 root_api_url = [
     path("", RootApiView.as_view(), name="api-root")
@@ -31,6 +32,7 @@ urlpatterns = [
     path("api/v1/", include(api_urls)),
     path("atom/", AtomPostFeed(), name="post_atom_feed"),
     path("blog/", include(blog_urls)),
+    path("", include(testapp_urls)),
     path(
         "o/",
         include(
